@@ -1,0 +1,29 @@
+<div class="post">
+    <div class="post-holder">
+        <div class="row">
+            {{ range first 6 (where .Site.RegularPages "Section" "posts")}}
+            <div class="card">
+                <div class="card-holder">
+                    <div class="card-head">
+                        <img src="{{.Params.thumb}}" alt="blog image">
+                    </div>
+                    <div class="card-body">
+                        <a href="{{ .Permalink }}">{{ truncate 30 .Title }}</a>
+                        <div>
+                            {{ range first 2 (.GetTerms `tags`) }}
+                            <a href="{{ .Permalink }}">#{{ .LinkTitle }}</a>
+                            {{end}}
+        
+                            {{ range (.GetTerms "categories") }}
+                            <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+                            {{ end }}
+                                
+                            <b>{{ dateFormat "2006" .Date }}</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{ end }}
+        </div>        
+    </div>
+</div>

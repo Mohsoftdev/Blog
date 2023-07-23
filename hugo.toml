@@ -1,0 +1,4 @@
+baseURL = ''
+relativeURL = true
+languageCode = 'en-us'
+title = 'My blog'

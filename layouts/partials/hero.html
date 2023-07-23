@@ -1,0 +1,38 @@
+{{ $indicator := .Params.flag }}
+{{ $landing := "landing-page"}}
+{{ $post := "post-page"}}
+{{ $posts := "posts-page"}}
+{{ $tags := "tags-page"}}
+{{ $categories := "categories-page"}}
+<div class="
+hero
+{{ if eq $indicator $landing}}
+hero-landing
+{{ else if eq $indicator $posts}}hero-posts
+{{else}}hero-default 
+{{ end }}
+" style="{{if eq $indicator $post}} background-image: linear-gradient(rgb(255 255 255/ 50%), rgb(255 255 255/ 80%)), url('{{ .Params.thumb}}') {{end}}">
+    <div class="hero-container">
+        {{ if eq $indicator $landing}}
+        <h1>{{ .Params.firstTitle }}</h1>
+        <p>{{ .Params.content }}</p>
+        <a href="/posts/">All Blogs</a>
+        {{ else if eq $indicator $post }}
+        <h1>{{ .Title}}</h1>
+        <ul>
+            {{range .GetTerms "tags"}}
+            <li><a href="{{.Permalink}}">#{{.LinkTitle}}</a></li>
+            {{end}}
+        </ul>
+        {{ else if eq $indicator $posts }}
+        <h1>{{ .Title}}</h1>
+        {{ else if eq $indicator $tags }}
+        <h1>{{ .Title}}</h1>
+        {{ else if eq $indicator $categories }}
+        <h1>{{ .Title}}</h1>
+        {{ else }}
+        <span>all about</span>
+        <h1>{{ .Title}}</h1>
+        {{ end }}        
+    </div>
+</div>
