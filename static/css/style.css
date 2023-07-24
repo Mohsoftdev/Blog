@@ -14,7 +14,6 @@ body{
     margin: 0;
     font-size: 24px;
     font-family: 'Tajawal', sans-serif;
-    /* height: 2000px; */
 }
 
 /* navbar */
@@ -22,14 +21,15 @@ nav.navbar{
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
     z-index: 99999;
-    width: 100%;
 }
 .navbar-container{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 60px 30px 30px;
+    padding: 20px 40px;
+    width: 100%;
 }
 
 .navbar-container>.logo{
@@ -114,10 +114,6 @@ nav.nav-show>.navbar-container>ul>li:hover>a>i{
     transform: translateY(-250%);
     opacity: 0;
     cursor: pointer;
-}
-
-.phone-menu:hover{
-    font-size: 35px;
 }
 
 /* hero */
@@ -398,7 +394,6 @@ nav.nav-show>.navbar-container>ul>li:hover>a>i{
     justify-content: space-between;
     align-items: center;
     padding: 10px 30px;
-    height: 100px;
     background-color: var(--main-color);
     border-radius: var(--border-radius);
     color: white;
@@ -436,12 +431,7 @@ nav.nav-show>.navbar-container>ul>li:hover>a>i{
 }
 @media (max-width: 768px) {
     .nav-show .phone-menu{
-        transform: translateY(0%);
-        opacity: 1;
         color: white;
-        position: absolute;
-        right: 0px;
-        margin-right: 60px;
     }
 
     .phone-menu{
@@ -484,6 +474,9 @@ nav.nav-show>.navbar-container>ul>li:hover>a>i{
         color: white;
     }
 
+    .navbar-container{
+        max-width: 80%;
+    }
     ul.navbar-phone-menu>li:hover{
         background-color: var(--main-color) !important;
     }
@@ -496,6 +489,25 @@ nav.nav-show>.navbar-container>ul>li:hover>a>i{
     
     .sub-block{
         width: 50%;
+    }
+
+    .footer{
+        padding: 0;
+    }
+
+    .footer-container{
+        flex-direction: column;
+    }
+    
+    .footer-container ul{
+        padding: 0;
+    }
+    .footer-container ul a{
+        text-decoration: none;
+    }
+
+    .footer-container span{
+        font-size: 20px;
     }
     
 }
@@ -514,10 +526,12 @@ nav.nav-show>.navbar-container>ul>li:hover>a>i{
     }
     .phone-menu{
         font-size: 20px;
-        margin-right: 40px;
     }
-    .navbar-container {
-        padding: 20px;
+
+    .card-body > div {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 20px;
     }
 
     .navbar-container>.logo{
@@ -531,4 +545,9 @@ nav.nav-show>.navbar-container>ul>li:hover>a>i{
     .sub-block{
         width: 100%;
     }
+    
+    .navbar-container{
+        width: 80%;
+    }
+    
 }
